@@ -1,21 +1,17 @@
-document.querySelector('#form-login').addEventListener('submit', e => {
-    e.preventDefault()
+let tab = document.querySelector('#tab tbody')
+let valueA = 15
+tab.innerHTML = ''
 
-    let email = document.querySelector('#email').value
-    let password = document.querySelector('#password').value
-    let json = {
-        email,
-        password
-    }
-
-    if (!json.email) {
-        console.error('O campo de e-mail deve ser preenchido!!!')
-        alert('O campo de e-mail deve ser preenchido!!!')
-    } else if (!json.password) {
-        console.error('O campo de senha deve ser preenchido!!!')
-        alert('O campo de senha deve ser preenchido!!!')
-    } else {
-        console.info('Dados validados com sucesso!!!')
-        alert('Dados validados com sucesso!!!')
-    }
-})
+for (let valueB = 0; valueB < 11; valueB++) {
+    let result = valueA * valueB
+    let template = `
+        <td>${valueA}</td>
+        <td>X</td>
+        <td>${valueB}</td>
+        <td>=</td>
+        <td>${result}</td>
+     `
+    let tr = document.createElement('tr')
+    tr.innerHTML = template
+    tab.append(tr)
+}
